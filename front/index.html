@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="flex.css">
+
+    <title>Document</title>
+
+</head>
+<body>
+<script>
+    function showhome(){
+       document.getElementById("homebox").style.display="block"
+       document.getElementById("linehome").style.display="block"
+       document.getElementById("hometext").style.color="red" 
+       document.getElementById("searchbox").style.display="none"
+       document.getElementById("linesearch").style.display="none"
+       document.getElementById("searchtext").style.color="white"
+    }
+    function showsearch(){
+       document.getElementById("homebox").style.display="none"
+       document.getElementById("linehome").style.display="none"
+       document.getElementById("hometext").style.color="white"  
+       document.getElementById("searchbox").style.display="block"
+       document.getElementById("linesearch").style.display="block"
+       document.getElementById("searchtext").style.color="red"
+    }
+
+</script>
+<div id = "header">
+<span id="title">THE MOVIE DB</span>
+</div>
+<div id="container">
+
+
+<div id = "sidebar">
+    <div class="side" id="hometext" onclick="showhome()">
+       Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;
+    </div>
+    <div class="line" id="linehome"></div>
+    <div class="side" id="searchtext" onclick="showsearch()">
+        Serach&nbsp;&nbsp;&nbsp;&nbsp;&rarr;
+    </div>
+    <div class="line" id="linesearch"></div>
+</div>
+
+<div id="content">
+    <div id="mainbox">
+    <div id="homebox" class="box">
+    
+        <div class="infoel">
+            <span class="eletitle">Trending Moies</span>
+            <div id="imgtre">
+                <div class="intro">
+                    Trending Movies Title
+                </div>
+            </div>
+        </div>
+        <div class="infoel" id="el2">
+            <span class="eletitle">TV Shows On-Air</span>
+            <div id="imgtre">
+                <div class="intro">
+                    TV Show Title
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchbox" class="box">
+    </div>
+   </div>
+
+    <div id="footer">
+        <p>
+        Designed and developed by Liang Guo<br>
+        Powered by TMBD
+        </p>
+    </div>
+</div>
+</div>
+</body>
+</html>
