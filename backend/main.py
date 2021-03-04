@@ -23,9 +23,17 @@ def fetch_trending():
     return json 
     """
     url = f"{BASE}/3/trending/movie/week?api_key={KEY}"
-    data = requests.get(url).json()
-    return jsonify(data)
-
+    data = requests.get(url).json() # TODO error handle here
+    resp = [] 
+    for item in data.get("results",[])[:5]:
+        resp.append(
+            {
+                "title": item.get("title"),
+                "backdrop_path": IMG_PR+item.get("backdrop_path"),
+                "release_date": item.get("release_date")
+            }
+        )
+    return jsonify(resp)
 
 
 if __name__ == "__main__":
