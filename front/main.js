@@ -1,6 +1,7 @@
 window.onload=handleTrending()
 
-async function handleTrending(){ // fetch and change poster of home page 
+// fetch and change poster of home page 
+async function handleTrending(){
     var data = await getJSON("/trending")
     var dataAir = await getJSON("/airtoday")
     // trending movies
@@ -38,4 +39,23 @@ async function getJSON(url) {
   }
 
 
+function search(){
+    var kv = document.getElementById("keyword").value
+    var type =  document.getElementById("category").value
+    if(kv==""||type==""){
+      alert("Please fill out this field")
+      return []
+    }
+    url ="/search?type="+type+"&kv="+kv
+    getJSON(url).then(function(resp){
+      console.log("===========")
+      console.log(resp)
+    })
+    
 
+}
+
+function clearForm(){
+    document.getElementById("keyword").value="";
+    document.getElementById("category").value="";
+}

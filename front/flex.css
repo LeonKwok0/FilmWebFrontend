@@ -6,6 +6,7 @@ body{
 #container {
     display: flex;
     width: 1250px;
+    margin-top: 5px;
 }
 
 
@@ -122,3 +123,54 @@ body{
     font-size: 12px;
 }
 
+/* for searchbox */
+#searchbox{
+    display: none;
+}
+.search_opt{
+    color: white;
+    width: 1000px;
+    height: 300px;
+    /* background-color: red; */
+    margin-left: 10px;
+    background-image: linear-gradient(to bottom, red 20%,black 70%);
+    opacity: 0.9;
+    /* text-align: center; */
+}
+
+.form {
+    margin-left: 400px;
+}
+.search_title{
+    /* background-color: violet; */
+    padding-top: 20px;
+    padding-bottom:30px;
+}
+#keyword{
+    width: 300px;
+}
+#keyword_lab{
+    padding-bottom: 20px;
+
+}
+.groups{
+    /* background-color: #fff; */
+    padding-bottom: 20px;
+}
+
+.btn{
+    background-color: black;
+    border: black;
+    border-radius: 2px;
+    color: white;
+}
+.btn:hover{
+    background-color: red;
+
+}
+.btn_search{
+    margin-left: 100px;
+}
+.clear{
+    margin-left: 20px;
+}
