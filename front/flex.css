@@ -83,13 +83,13 @@ body{
 #el2{
     margin-top: 80px;
 }
-#imgtre{
+.poster{
     background-image: url(statics/movie-placeholder.jpg);
     width: 780px;
-    height: 456px;
+    height: 436px;
     z-index: -1;
     display: flex;
-    justify-content:  flex-end;
+    justify-content: flex-end;
     flex-direction: column;
 }
 .intro{

@@ -10,11 +10,12 @@ IMG_PR = "https://image.tmdb.org/t/p/w780"
 from flask import Flask, json
 from flask import jsonify
 import requests
-app = Flask(__name__)
+app = Flask(__name__,static_folder="../front",static_url_path='')
 
 @app.route("/")
 def index():
-    return "<h1>Hello Flask</h1>"
+    return app.send_static_file('index.html')
+
 
 @app.route("/trending")
 def fetch_trending():
@@ -23,7 +24,7 @@ def fetch_trending():
     return json 
     """
     url = f"{BASE}/3/trending/movie/week?api_key={KEY}"
-    data = requests.get(url).json() # TODO error handle here
+    data = requests.get(url,verify = False).json() # TODO error handle here
     resp = [] 
     for item in data.get("results",[])[:5]:
         resp.append(
@@ -34,6 +35,23 @@ def fetch_trending():
             }
         )
     return jsonify(resp)
+
+@app.route("/airtoday")
+def fetch_airtoday():
+    url = f"{BASE}/3/tv/airing_today?api_key={KEY}"
+    print(url)
+    data = requests.get(url,verify = False).json() # TODO error handle here
+    resp = [] 
+    for item in data.get("results",[])[:5]:
+        resp.append(
+            {
+                "name": item.get("name"),
+                "backdrop_path": IMG_PR+item.get("backdrop_path"),
+                "first_air_date": item.get("first_air_date")
+            }
+        )
+    return jsonify(resp)
+
 
 
 if __name__ == "__main__":
