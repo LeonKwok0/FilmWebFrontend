@@ -1,6 +1,10 @@
 body{
     background: black;
 }
+#all_ele{
+    background-color: black;
+    margin: 0px;
+}
 
 
 #container {
@@ -27,7 +31,7 @@ body{
 #sidebar{
     /* background-color: #fff; */
     width: 200px;
-    height: 1310px;
+    min-height: 1310px;
     float:left;
     border-width: 0px;
     border-right: 1.5px;
@@ -67,7 +71,7 @@ body{
 
 
 #mainbox {
-    height: 1240px;
+    min-height:1240px;
     /* width: ; */
     /* background-color: purple; */
     margin-bottom: 0px;
@@ -176,34 +180,104 @@ body{
     margin-left: 20px;
 }
 
-.details {
-    background-color: black;
-    opacity: 0.7;
-    width: 100%;
-    height: 100%;
-    /* z-index: 100; */
-    position: fixed;
-    left: 0px;
-    top: 0px;
+#nores{
+    /* display: none; */
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    display: none;
+    
 }
 
-/* 
-#info_box{
-    margin: auto;
-    width: 900px;
-    height: 1000px;
-    background-color: grey;
+#search_res{
+    /* background: black; */
+    /* display: none; */
+}
 
-} */
+#have_res{
+    color: white;
+}
 
-#info_box{
+.res_ele{
+    height: 300px;
+    width: 1000px;
+    border-left: red solid 10px;
+    /* background-color: white; */
+    margin: 10px;
+    display: flex;
+    color: grey;
+}
+.res_left{
+    width: 185px;
+    height: 275px;
+    /* background-color: green; */
+    margin: 10px;
+    flex-shrink: 0
+}
+.res_right{
+    margin-top: 10px;
+}
+.stitle{
+    font-size: 20px;
+    color: white;
+}
+.year_type{
+    margin-top: 30px;
+}
+.grade{
+    color:red;
+}
+.votes{
+    color: white;
+}
+.sreview{
+ margin-top: 20px;
+ word-wrap: break-word;
+ max-height: 100px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+.res_right button{
+    margin-top: 20px;
+    background-color: red;
+    border: red;
+    height: 40px;
+    width: 80px;
+    line-height: 40px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* for details */
+#detail_all{
     margin: auto;
-    width: 900px;
+    width: 870px;
     height: 1000px;
-    position: fixed;
+    padding-left: 40px;
     left: 200px;
     top: 50px;
-    /* z-index: 2; */
-    background-color: grey;
-    /* opacity: 1; */
+    z-index: 2;
+    background-color: #cacaca;
+    display: none;
+}
+
+#detail_btn{
+    margin: 10px 20px 0px 0px;
+    float: right;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: transparent;  
+    text-shadow: 0 0 0 gray;
+    font-size: 10px;
+}
+#big_poster{
+    width: 780px;
+    height: 450px;
+    float: left;
+    background-color: green;
+    margin: 20px 0px 0px 0px
 }

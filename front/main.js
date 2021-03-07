@@ -40,22 +40,78 @@ async function getJSON(url) {
 
 
 function search(){
+    var nores = document.getElementById("nores")
+    document.getElementById("search_res").style.display="none"
+    nores.style.display="none"
+
     var kv = document.getElementById("keyword").value
     var type =  document.getElementById("category").value
+    
     if(kv==""||type==""){
       alert("Please fill out this field")
       return []
     }
     url ="/search?type="+type+"&kv="+kv
     getJSON(url).then(function(resp){
-      console.log("===========")
-      console.log(resp)
-    })
-    
+      
+      if(resp.length == 0){
+        nores.style.display="block"
+      }else{
+        showResult(resp)
+      }
+    })  
+}
 
+
+function showResult(data){
+  document.getElementById("nores").display="none"
+  document.getElementById("search_res").style.display="block"
+  var one="";
+  data.forEach(item => {
+  one += `<div class="res_ele">
+    <div class="res_left" style="background-image:url(${item.poster_path})"></div>
+    <div class="res_right">
+    <div class="stitle">${item.title}</div>
+    <div class="year_type">
+    <span clas="syear">${item.release_date.substring(0,4)}</span>
+    <span class="stype"> |&nbsp${item.genres}</span>
+    </div>
+    <div>
+        <span class="grade">&#9733;${item.vote_average/2}/5</span>
+        <span class="votes">${item.vote_count}&nbsp votes</span>
+    </div>
+    <div class="sreview">${item.overview}</div>
+    <button onclick="showDetail(${item.id},${item.type})">Show More</button>
+    </div>
+    </div>
+    `
+  });
+  var group = document.getElementById("res_group")
+  group.innerHTML = one
+}
+
+function showDetail(id,type){
+  //  1 =tv 2 =movie
+
+  var detail_all = document.getElementById("detail_all")
+  var all_ele = document.getElementById("all_ele")
+  detail_all.style.display="block"
+  all_ele.style.opacity="0.3"
+  all_ele.style.zIndex="-1"
+  all_ele.style.position="fixed"
+}
+
+function closeDetail(){
+  var detail_all = document.getElementById("detail_all")
+  var all_ele = document.getElementById("all_ele")
+  detail_all.style.display="none"
+  all_ele.style.opacity="1"
+  all_ele.style.zIndex="1"
+  all_ele.style.position="relative"
 }
 
 function clearForm(){
     document.getElementById("keyword").value="";
     document.getElementById("category").value="";
+    
 }

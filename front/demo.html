@@ -7,47 +7,34 @@
 
 
 <style type="text/css">
-/*设置了高度，可以上下滚动*/
-body {
-height: 1800px;
-background:#dddddd;
-}
-
-
-
-
-/*屏幕中间*/
-div.center_{
-/* right: 45%;
-top: 50%; */
-background: #1a59b7;
-color:#ffffff;
-
-z-index: 9999;
-position: fixed;
-padding:5px;
-text-align:center;
-width: 500px;
-height: 500px;
-left: 0px;
-top: 0px;
-}
 .content{
-    overflow: hidden;
-    background-color: red;
-    height: 2000px;
+ height: 2000px;
+ width: 1000px;
+ background-color: black;
+ position: fixed;
+ z-index: -1;
+ opacity: 0.2;
 }
 
+.detail{
+    height: 1500px;
+    width: 500px;
+    margin: auto;
+    background-color: yellow;
+    z-index: 2;
+}
 </style>
 
 
 </head>
-<body >
+<body>
 <div class="content">
     <div class="q">
-        adASASDA
-    </div>
-    <div class="center_"> 我是屏幕中间悬浮的div</div>
+        我是内容
+    </div> 
+</div>
+<div class="detail"> 
+    i am detail 
 </div>
 
 
