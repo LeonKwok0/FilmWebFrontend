@@ -90,7 +90,13 @@ def search():
     data = fetch(url)
     res = data.get("results", [])
     resp = []
+    
     for item in res:
+        # ignore none-tv/movie media
+        if type == "multi":
+            if not item.get("media_type","") in ["tv","movie"]:
+                continue 
+        #collect required data
         one = {
             k: item.get(k, "") for k in mov_fields
         }
@@ -109,9 +115,9 @@ def search():
             one["poster_path"] = "https://image.tmdb.org/t/p/w185" + \
                 one["poster_path"]
 
-        for k, val in one.items():
-            if not val:
-                one[k] = "N/A"
+        # for k, val in one.items():
+        #     if not val:
+        #         one[k] = "N/A" 
 
         resp.append(one)
     return jsonify(resp)

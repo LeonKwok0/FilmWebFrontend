@@ -14,11 +14,11 @@ async function handleTrending() {
   const change = () => {
     var item = data[index]
     imgtre.style.backgroundImage = "url(" + item["backdrop_path"] + ")"
-    introtre.innerHTML = item["title"] + "(" + item["release_date"].substring(0, 4) + ")"
+    introtre.innerHTML = item["title"] + "&nbsp;(" + item["release_date"].substring(0, 4) + ")"
 
     var item2 = dataAir[index]
     imgair.style.backgroundImage = "url(" + item2["backdrop_path"] + ")"
-    introair.innerHTML = item2["name"] + "(" + item2["first_air_date"].substring(0, 4) + ")"
+    introair.innerHTML = item2["name"] + "&nbsp;(" + item2["first_air_date"].substring(0, 4) + ")"
     index = (index == 4) ? 0 : ++index
   }
   change()
@@ -29,6 +29,8 @@ async function handleTrending() {
 
 
 async function getJSON(url) {
+  //  for devlopment mode 
+  url = "http://127.0.0.1:5000"+url
   var retry_time = 0
   while (retry_time<5) {
     try {
@@ -54,7 +56,7 @@ function search() {
   var type = document.getElementById("category").value
 
   if (kv == "" || type == "") {
-    alert("Please fill out this field")
+    alert("Please enter valid values.")
     return []
   }
   url = "/search?type=" + type + "&kv=" + kv
@@ -69,6 +71,7 @@ function search() {
 }
 
 function clearForm() {
+  document.getElementById("search_res").style.display="none"
   document.getElementById("keyword").value = "";
   document.getElementById("category").value = "";
 }
