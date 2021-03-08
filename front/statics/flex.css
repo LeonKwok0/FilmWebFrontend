@@ -18,7 +18,6 @@ body{
 }
 
 #header{
-    /* background-color:grey; */
     background-image: linear-gradient(to left, red 10%,black 25%);
     width: 100%;
     line-height: 30px;
@@ -29,7 +28,6 @@ body{
     color: red;
     font-size: 20px;
     font-weight: bolder;
-    font-family: ;
 }
 
 
@@ -49,6 +47,7 @@ body{
     padding-left: 90px;
     padding-right: 10px;
     font-size: 16px;
+    font-weight: bold;
 }
 #sidebar .side:hover{
     cursor: pointer;
@@ -86,14 +85,17 @@ body{
     margin-top: 20px;
     width: 780px; 
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
     color: white;
+}
+.eletitle{
+    margin-bottom: 10px;
 }
 #el2{
     margin-top: 80px;
 }
 .poster{
-    background-image: url(statics/movie-placeholder.jpg);
+    background-image: url(movie-placeholder.jpg);
     width: 780px;
     height: 436px;
     z-index: -1;
@@ -109,6 +111,7 @@ body{
     opacity:0.8;
     line-height: 80px;
     width: 100%;
+    font-size: 20px;
 }
 
 
@@ -275,6 +278,7 @@ body{
     display: none;
     padding-bottom: 20px;
     font-family: Raleway, Arial, Helvetica, sans-serif;
+    margin-top: 64px;
 }
 
 
@@ -352,7 +356,7 @@ body{
     font-size: 12px;
 }
 .cast_img{
-    background-image: url(statics/person-placeholder.png);
+    background-image: url(person-placeholder.png);
     width: 185px;
     height: 277px;
 }

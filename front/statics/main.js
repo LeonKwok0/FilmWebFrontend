@@ -1,7 +1,10 @@
+
+
 window.onload = handleTrending()
 
 // fetch and change poster of home page 
 async function handleTrending() {
+  console.log("Hi, Have a Good Day !")
   var data = await getJSON("/trending")
   var dataAir = await getJSON("/airtoday")
   // trending movies
@@ -30,7 +33,7 @@ async function handleTrending() {
 
 async function getJSON(url) {
   //  for devlopment mode 
-  url = "http://127.0.0.1:5000"+url
+  // url = "http://127.0.0.1:5000"+url
   var retry_time = 0
   while (retry_time<5) {
     try {
@@ -38,7 +41,7 @@ async function getJSON(url) {
       return await response.json();
     } catch (error) {
       retry_time +=1
-      console.log("Request Failed, Retrying the" + retry_time +" time...." , error);
+      console.log("Request Failed, Retrying the " + retry_time +" time...." , error);
     }  
   }
   console.log('Retried more than 5 times, canceled')
@@ -115,8 +118,11 @@ function closeDetail() {
   all_ele.style.opacity = "1"
   all_ele.style.zIndex = "1"
   all_ele.style.position = "relative"
+  all_ele.style.top = 0+"px"
+  window.scrollTo(0,current_y)
 }
 
+var current_y;
 function showDetail(id, type) {
   // display popup 
   var detail_all = document.getElementById("detail_all")
@@ -125,6 +131,7 @@ function showDetail(id, type) {
   document.getElementById("basic_group").innerHTML = ""
   document.getElementById("cast_container").innerHTML =""
   document.getElementById("rev_container").innerHTML =""
+  current_y= window.scrollY  // current y positon page 
 
 
 
@@ -134,10 +141,14 @@ function showDetail(id, type) {
   showRewiew(id, type)
 
   detail_all.style.display = "block"
+  window.scrollTo(0,0)
   all_ele.style.opacity = "0.3"
   all_ele.style.zIndex = "-1"
+  
   all_ele.style.position = "fixed"
+  all_ele.style.top=-current_y+"px"
 
+ 
 }
 
 function showBasic(id, type) {
