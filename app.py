@@ -14,7 +14,7 @@ from werkzeug.datastructures import iter_multi_items
 KEY = "bec75727adfa221f20fb0a25788e805c"
 BASE = "https://api.themoviedb.org"
 IMG_PR = "https://image.tmdb.org/t/p/"
-app = Flask(__name__, static_folder="../front", static_url_path='')
+app = Flask(__name__, static_folder="front", static_url_path='')
 
 genre = {10759: 'Action & Adventure', 16: 'Animation', 35: 'Comedy',
          80: 'Crime', 99: 'Documentary', 18: 'Drama',
