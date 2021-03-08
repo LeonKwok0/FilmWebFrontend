@@ -4,6 +4,9 @@ body{
 #all_ele{
     background-color: black;
     margin: 0px;
+    width: 1400px;
+    /* position: fixed; */
+    /* z-index: -1; */
 }
 
 
@@ -19,7 +22,6 @@ body{
     /* background-color:grey; */
     background-image: linear-gradient(to left, red 10%,black 30%);
     width: 100%;
-    height: 30px;
     line-height: 30px;
 }
 #title{
@@ -191,7 +193,7 @@ body{
 
 #search_res{
     /* background: black; */
-    /* display: none; */
+    display: none;
 }
 
 #have_res{
@@ -248,18 +250,30 @@ body{
     color: white;
 }
 
+
+
 /* for details */
 #detail_all{
     margin: auto;
     width: 870px;
-    height: 1000px;
-    padding-left: 40px;
-    left: 200px;
-    top: 50px;
+    min-height: 1200px;
+    padding-left: 50px;
     z-index: 2;
     background-color: #cacaca;
     display: none;
+    padding-bottom: 20px;
 }
+
+
+#big_poster{
+    width: 780px;
+    height: 450px;
+    background-repeat: no-repeat;
+    flex: auto;
+    float: left;
+    margin: 20px 20px 25px 0px
+}
+
 
 #detail_btn{
     margin: 10px 20px 0px 0px;
@@ -273,11 +287,112 @@ body{
     color: transparent;  
     text-shadow: 0 0 0 gray;
     font-size: 10px;
+
 }
-#big_poster{
+
+
+#detail_other{
     width: 780px;
-    height: 450px;
-    float: left;
-    background-color: green;
-    margin: 20px 0px 0px 0px
+    min-height: 800px;
+    /* background-color: yellow; */
 }
+
+.d_title{
+    font-size: 25px;
+}
+#d_link{
+    font-size: 15px;
+    text-decoration: none;
+    color: red;
+}
+
+#d_grade{
+    color: red;
+}
+
+#d_year_type{
+    margin-top: 24px;
+    margin-bottom:16px;
+}
+#d_review{
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+#lag{
+    font-style: italic;
+    margin-bottom: 16px;
+}
+#cast_title{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+#cast_container{
+    display: flex;
+    /* background-color: yellow; */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.cast_ele{
+    text-align: center;
+    width: 185px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+.cast_img{
+    background-image: url(statics/person-placeholder.png);
+    width: 185px;
+    height: 277px;
+    /* opacity: 0.8; */
+}
+.cast_name{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#rev_title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.rev_ele{
+    /* margin-bottom: 16px; */
+    padding-bottom: 36px;
+}
+.rev_ur{
+    margin-bottom: 10px;
+}
+.rev_user{
+    font-weight: bolder;
+}
+.rev_rating{
+    color: red;
+}
+.rev_date{
+    font-style: italic;
+}
+.rev_content{
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.line_container{
+    margin-top: 14px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.rev_line{
+    background-color: grey;
+    height: 1px;
+    padding-left: 20px;
+}
+
+
+
+
+
+
