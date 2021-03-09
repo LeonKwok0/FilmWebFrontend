@@ -1,10 +1,11 @@
-
+console.log("Hi,")
+console.log("This is a assigment for csci 571, coded by LiangGuo.")
+console.log("Thanks for Prof.Saty and all the TAs/Graders,")
+console.log("Have a good day!")
 
 window.onload = handleTrending()
-
 // fetch and change poster of home page 
 async function handleTrending() {
-  console.log("Hi, Have a Good Day !")
   var data = await getJSON("/trending")
   var dataAir = await getJSON("/airtoday")
   // trending movies
