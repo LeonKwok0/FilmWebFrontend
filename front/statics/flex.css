@@ -303,8 +303,12 @@ body{
     outline: inherit;
     color: transparent;  
     text-shadow: 0 0 0 gray;
-    font-size: 10px;
-
+    font-size: 16px;
+    opacity: 0.4;
+}
+#detail_btn:hover{
+    color: black;
+    opacity: 1;
 }
 
 

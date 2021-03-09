@@ -160,7 +160,7 @@ function showBasic(id, type) {
       var htmlEle = `
       <div>
           <span class="d_title">${item.name}</span>
-          <a href="https://www.themoviedb.org/${type}/${id}" id="d_link">&nbsp;&nbsp;ⓘ</a>
+          <a href="https://www.themoviedb.org/${type}/${id}" id="d_link" target="_blank">&nbsp;&nbsp;ⓘ</a>
       </div>
       <div id="d_year_type">
           <span id="d_year">${item.year}</span>
