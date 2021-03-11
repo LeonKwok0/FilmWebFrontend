@@ -76,6 +76,7 @@ function search() {
 
 function clearForm() {
   document.getElementById("search_res").style.display="none"
+  document.getElementById("nores").style.display="none"
   document.getElementById("keyword").value = "";
   document.getElementById("category").value = "";
 }
@@ -195,7 +196,8 @@ function showCast(id, type) {
         </div>
         `
       })
-      document.getElementById("cast_container").innerHTML = all_ele
+      null_val ='<div style="font-size:15px">N/A</div>'
+      document.getElementById("cast_container").innerHTML =(resp.length>0)?all_ele:null_val
     }
   )
 
@@ -219,9 +221,11 @@ function showRewiew(id, type) {
             <div class="rev_line"></div>
         </div>
         </div>
-        `
-        document.getElementById("rev_container").innerHTML = all_ele
+        `  
       })
+      null_val ='<div style="font-size:15px">N/A</div>'
+      document.getElementById("rev_container").innerHTML =(resp.length>0)?all_ele:null_val
+
     })
 
 }

@@ -115,10 +115,9 @@ def search():
             one["poster_path"] = "https://image.tmdb.org/t/p/w185" + \
                 one["poster_path"]
 
-        # for k, val in one.items():
-        #     if not val:
-        #         one[k] = "N/A" 
-
+        for k in ["overview", "release_date", "genre_ids"]:
+            if not one[k]: 
+                one[k] ="N/A"
         resp.append(one)
     return jsonify(resp)
 
@@ -147,19 +146,22 @@ def media_basic():
     else:
         one["name"] = item.get("title")
         one["year"] = item.get("release_date")
-    one["year"] = one["year"][:4] if one["year"] else ""
+    one["year"] = one["year"][:4] if one["year"] else "N/A"
     # genres
     one["genres"] = [gen.get("name") for gen in item.get("genres", [])]
+    if not one["genres"]: one["genres"] = "N/A"
     # spoken_languages
     one["spoken_languages"] = [lag.get("english_name")
                                for lag in item.get("spoken_languages", [])]
+    if not one["spoken_languages"]: one["spoken_languages"] ="N/A"
     # vote_average
     one["vote_average"] = item.get(
-        "vote_average")/2 if item.get("vote_average") else "NA"
+        "vote_average")/2 if item.get("vote_average") else 0
     # vote_count
     one["vote_count"] = item.get("vote_count")
     # overview
-    one["overview"] = item.get("overview")
+    one["overview"] = item.get("overview") if item.get("overview") else "N/A"
+
     return jsonify(one)
 
 @app.route("/media_cast")
