@@ -108,6 +108,7 @@ def search():
         elif (item.get("media_type") == "movie") or(type == "movie"):
             one["type"] = 2
         one["genres"] = [genre[gen_id] for gen_id in one["genre_ids"]]
+        if not one["genres"]: one["genres"] ="N/A"
 
         if not one["poster_path"]:
             one["poster_path"] = "statics/movie_poster.png"
